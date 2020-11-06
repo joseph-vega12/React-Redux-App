@@ -9,7 +9,7 @@ export const fetchCatFacts = () => {
         dispatch({type: FETCH_CAT_FACTS_START});
         axios.get('https://cat-fact.herokuapp.com/facts')
         .then(res => {
-            dispatch({ type: FETCH_CAT_FACTS_SUCCESS, payload: res.data });
+            dispatch({ type: FETCH_CAT_FACTS_SUCCESS, payload: res.data.all });
         })
         .catch(err => {
             console.log(err.message);
