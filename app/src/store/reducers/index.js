@@ -6,4 +6,21 @@ const initialState = {
     error: '',
 }
 
-export const 
+export const catReducer = (state = initialState, action) => {
+    switch(action.type){
+        case FETCH_CAT_FACTS_START: 
+        return {
+            ...state, 
+            isLoading: true,
+            error: '',
+        }
+        case FETCH_CAT_FACTS_SUCCESS:
+        return {
+            ...state,
+            isLoading: false,
+            catData: action.payload,
+        }
+        default:
+            return(state);
+    }
+}
